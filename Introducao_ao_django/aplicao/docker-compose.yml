@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  database:
+    container_name: alura_receitas_database
+    image: postgres
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgresql/data
+    environment:
+      - LC_ALL=C.UTF-8
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=dbserver
+    ports:
+      - 5434:5432

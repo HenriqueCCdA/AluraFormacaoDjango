@@ -21,5 +21,3 @@ urlpatterns = [
     path('', include('receitas.urls')),
     path('admin/', admin.site.urls),
 ]
-
-print(urlpatterns)
