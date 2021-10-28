@@ -10,7 +10,7 @@ def index(request):
 
     dados = {'receitas': receitas}
 
-    return render(request, 'index.html', context=dados)
+    return render(request, 'receitas/index.html', context=dados)
 
 
 def receita(request, receita_id):
@@ -19,7 +19,7 @@ def receita(request, receita_id):
 
     receita_a_exibir = {'receita': receita}
 
-    return render(request, 'receita.html', context=receita_a_exibir)
+    return render(request, 'receitas/receita.html', context=receita_a_exibir)
 
 
 def buscar(request):
@@ -37,4 +37,4 @@ def buscar(request):
     }
     print(receita_a_exibir)
 
-    return render(request, 'buscar.html', context=receita_a_exibir)
+    return render(request, 'receitas/buscar.html', context=receita_a_exibir)
