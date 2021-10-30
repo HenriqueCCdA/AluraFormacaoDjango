@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import sys
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
@@ -143,3 +143,7 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success',
 }
+
+
+PROJECT_ROOT = BASE_DIR
+sys.path.insert(0, str(PROJECT_ROOT / 'apps'))
