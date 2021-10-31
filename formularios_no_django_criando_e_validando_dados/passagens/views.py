@@ -6,3 +6,10 @@ def index(request):
     form = PassagemForms()
     contexto = {'form': form}
     return render(request, 'index.html', context=contexto)
+
+
+def revisao_consulta(request):
+    if request.method == 'POST':
+        form = PassagemForms(request.POST)
+        contexto = {'form': form}
+        return render(request, 'minha_consulta.html', context=contexto)
