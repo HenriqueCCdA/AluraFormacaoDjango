@@ -2,12 +2,20 @@ from django.test import LiveServerTestCase
 from selenium import webdriver
 from pathlib import Path
 
+from animais.models import Animal
+
 
 class AnimaisTestCase(LiveServerTestCase):
 
     def setUp(self):
         exec_path = Path(__file__).parent.parent / 'chromedriver.exe'
         self.browser = webdriver.Chrome(exec_path)
+        self.animal = Animal.objects.create(
+                                            nome_do_animal='Leão',
+                                            predador='Sim',
+                                            venenoso='Não',
+                                            domestico='Não'
+        )
 
     def tearDown(self):
         self.browser.quit()
