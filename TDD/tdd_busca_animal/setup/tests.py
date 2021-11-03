@@ -21,3 +21,12 @@ class AnimaisTestCase(LiveServerTestCase):
 
         brand_element = self.browser.find_element_by_css_selector('.navbar')
         self.assertEqual('Busca Animal', brand_element.text)
+
+        buscar_animal_input = self.browser.find_element_by_css_selector('input#buscar-animal')
+        self.assertEqual(buscar_animal_input.get_attribute('placeholder'), 'Exemplo: leão, urso, ...')
+
+        buscar_animal_input.send_keys('leão')
+        self.browser.find_element_by_css_selector('form button').click()
+
+        caracteristicas = self.browser.find_elements_by_css_selector('.result-description')
+        self.assertGreater(len(caracteristicas), 3)
